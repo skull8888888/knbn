@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F80245D1EDEACCB00E61CF1 /* DesksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80245C1EDEACCB00E61CF1 /* DesksView.swift */; };
+		2F8024601EDEAD9D00E61CF1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F80245E1EDEAD9D00E61CF1 /* TableViewCell.swift */; };
+		2F8024611EDEAD9D00E61CF1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F80245F1EDEAD9D00E61CF1 /* TableViewCell.xib */; };
+		2FC1EDDA1EC8A304009C9B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */; };
+		2FC1EDDC1EC8A304009C9B11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */; };
+		2FC1EDDF1EC8A304009C9B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDDD1EC8A304009C9B11 /* Main.storyboard */; };
+		2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */; };
+		2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */; };
+		2FCC27F61FC1B846004108E3 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */; };
+		2FD3ADEB1ED6E41900BC9A42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */; };
+		2FD3ADED1ED6FE6100BC9A42 /* NewDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3ADEC1ED6FE6100BC9A42 /* NewDeskViewController.swift */; };
+		2FE092091ECD5C42001DD542 /* BoardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092081ECD5C42001DD542 /* BoardCollectionView.swift */; };
+		2FE092141ECD727A001DD542 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092121ECD727A001DD542 /* CollectionViewCell.swift */; };
+		2FE092151ECD727A001DD542 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE092131ECD727A001DD542 /* CollectionViewCell.xib */; };
+		2FE0CA561ED2C5740011382D /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */; };
+		764E2C7EC3D9F81C0D47C584 /* Pods_KNBN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.debug.xcconfig"; sourceTree = "<group>"; };
+		2F80245C1EDEACCB00E61CF1 /* DesksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesksView.swift; sourceTree = "<group>"; };
+		2F80245E1EDEAD9D00E61CF1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2F80245F1EDEAD9D00E61CF1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		2FC1EDD61EC8A304009C9B11 /* KNBN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNBN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2FC1EDDE1EC8A304009C9B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FC1EDE31EC8A304009C9B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2FC1EDE51EC8A304009C9B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FD3ADEC1ED6FE6100BC9A42 /* NewDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDeskViewController.swift; sourceTree = "<group>"; };
+		2FE092081ECD5C42001DD542 /* BoardCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionView.swift; sourceTree = "<group>"; };
+		2FE092121ECD727A001DD542 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2FE092131ECD727A001DD542 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
+		4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.release.xcconfig"; sourceTree = "<group>"; };
+		EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KNBN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FC1EDD31EC8A304009C9B11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				764E2C7EC3D9F81C0D47C584 /* Pods_KNBN.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11ECB7114197B629B416DC75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */,
+				4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2FC1EDCD1EC8A304009C9B11 = {
+			isa = PBXGroup;
+			children = (
+				2FC1EDD81EC8A304009C9B11 /* KNBN */,
+				2FC1EDD71EC8A304009C9B11 /* Products */,
+				11ECB7114197B629B416DC75 /* Pods */,
+				7D576333C8FE980357675091 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2FC1EDD71EC8A304009C9B11 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FC1EDD61EC8A304009C9B11 /* KNBN.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FC1EDD81EC8A304009C9B11 /* KNBN */ = {
+			isa = PBXGroup;
+			children = (
+				2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */,
+				2FE091FD1ECD58DA001DD542 /* Controllers */,
+				2FE0920E1ECD6CC3001DD542 /* Views */,
+				2FE0920F1ECD6CDF001DD542 /* xibs */,
+				2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */,
+				2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */,
+				2FC1EDE51EC8A304009C9B11 /* Info.plist */,
+				2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */,
+			);
+			path = KNBN;
+			sourceTree = "<group>";
+		};
+		2FE091FD1ECD58DA001DD542 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */,
+				2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */,
+				2FD3ADEC1ED6FE6100BC9A42 /* NewDeskViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2FE0920E1ECD6CC3001DD542 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FE092081ECD5C42001DD542 /* BoardCollectionView.swift */,
+				2FE092121ECD727A001DD542 /* CollectionViewCell.swift */,
+				2FE092131ECD727A001DD542 /* CollectionViewCell.xib */,
+				2F80245C1EDEACCB00E61CF1 /* DesksView.swift */,
+				2F80245E1EDEAD9D00E61CF1 /* TableViewCell.swift */,
+				2F80245F1EDEAD9D00E61CF1 /* TableViewCell.xib */,
+				2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2FE0920F1ECD6CDF001DD542 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				2FC1EDDD1EC8A304009C9B11 /* Main.storyboard */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		7D576333C8FE980357675091 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FC1EDD51EC8A304009C9B11 /* KNBN */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FC1EDE81EC8A304009C9B11 /* Build configuration list for PBXNativeTarget "KNBN" */;
+			buildPhases = (
+				8A210A41B0C3CA4730DCD57E /* [CP] Check Pods Manifest.lock */,
+				2FC1EDD21EC8A304009C9B11 /* Sources */,
+				2FC1EDD31EC8A304009C9B11 /* Frameworks */,
+				2FC1EDD41EC8A304009C9B11 /* Resources */,
+				4E9004A5794732FA4DFC1FD0 /* [CP] Embed Pods Frameworks */,
+				AACFC901239A099083C8A3B4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KNBN;
+			productName = KNBN;
+			productReference = 2FC1EDD61EC8A304009C9B11 /* KNBN.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FC1EDCE1EC8A304009C9B11 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Octopus;
+				TargetAttributes = {
+					2FC1EDD51EC8A304009C9B11 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = AVV373JF5Z;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2FC1EDD11EC8A304009C9B11 /* Build configuration list for PBXProject "KNBN" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FC1EDCD1EC8A304009C9B11;
+			productRefGroup = 2FC1EDD71EC8A304009C9B11 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FC1EDD51EC8A304009C9B11 /* KNBN */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FC1EDD41EC8A304009C9B11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD3ADEB1ED6E41900BC9A42 /* GoogleService-Info.plist in Resources */,
+				2F8024611EDEAD9D00E61CF1 /* TableViewCell.xib in Resources */,
+				2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */,
+				2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */,
+				2FE092151ECD727A001DD542 /* CollectionViewCell.xib in Resources */,
+				2FC1EDDF1EC8A304009C9B11 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E9004A5794732FA4DFC1FD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A210A41B0C3CA4730DCD57E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KNBN-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AACFC901239A099083C8A3B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FC1EDD21EC8A304009C9B11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD3ADED1ED6FE6100BC9A42 /* NewDeskViewController.swift in Sources */,
+				2F8024601EDEAD9D00E61CF1 /* TableViewCell.swift in Sources */,
+				2FE0CA561ED2C5740011382D /* NewNoteViewController.swift in Sources */,
+				2FC1EDDC1EC8A304009C9B11 /* MainViewController.swift in Sources */,
+				2FE092141ECD727A001DD542 /* CollectionViewCell.swift in Sources */,
+				2F80245D1EDEACCB00E61CF1 /* DesksView.swift in Sources */,
+				2FCC27F61FC1B846004108E3 /* CollectionViewLayout.swift in Sources */,
+				2FC1EDDA1EC8A304009C9B11 /* AppDelegate.swift in Sources */,
+				2FE092091ECD5C42001DD542 /* BoardCollectionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2FC1EDDD1EC8A304009C9B11 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FC1EDDE1EC8A304009C9B11 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FC1EDE31EC8A304009C9B11 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FC1EDE61EC8A304009C9B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2FC1EDE71EC8A304009C9B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FC1EDE91EC8A304009C9B11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AVV373JF5Z;
+				INFOPLIST_FILE = KNBN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Octopus.KNBN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2FC1EDEA1EC8A304009C9B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AVV373JF5Z;
+				INFOPLIST_FILE = KNBN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Octopus.KNBN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FC1EDD11EC8A304009C9B11 /* Build configuration list for PBXProject "KNBN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC1EDE61EC8A304009C9B11 /* Debug */,
+				2FC1EDE71EC8A304009C9B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FC1EDE81EC8A304009C9B11 /* Build configuration list for PBXNativeTarget "KNBN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC1EDE91EC8A304009C9B11 /* Debug */,
+				2FC1EDEA1EC8A304009C9B11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FC1EDCE1EC8A304009C9B11 /* Project object */;
+}

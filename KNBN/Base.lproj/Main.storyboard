@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="KNBN" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <segue destination="nf0-9x-DzL" kind="presentation" identifier="toNewDesk" id="6Ad-yE-L0c"/>
+                        <segue destination="XU6-qk-nlO" kind="presentation" identifier="toNewNote" id="IEN-Gf-fOa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="43.628185907046479"/>
+        </scene>
+        <!--New Desk-->
+        <scene sceneID="aN4-X7-02f">
+            <objects>
+                <viewController id="hqw-FD-Ym7" customClass="NewDeskViewController" customModule="KNBN" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="btJ-U2-pc7"/>
+                        <viewControllerLayoutGuide type="bottom" id="HHq-qJ-vBI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UBV-Ea-abH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flb-Bt-JTO">
+                                <rect key="frame" x="16" y="84" width="288" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="knbn/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8e-v6-dQT">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="textColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="0.34455265410958896" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Link" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wij-ZI-d0M">
+                                        <rect key="frame" x="52" y="0.0" width="236" height="40"/>
+                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gt5-Od-Jsn"/>
+                                </constraints>
+                            </stackView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of desk" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DXh-Jf-IZO">
+                                <rect key="frame" x="16" y="36" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LdW-3E-b5w"/>
+                                </constraints>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DXh-Jf-IZO" firstAttribute="top" secondItem="btJ-U2-pc7" secondAttribute="bottom" constant="36" id="4Yu-ph-ES8"/>
+                            <constraint firstItem="flb-Bt-JTO" firstAttribute="leading" secondItem="UBV-Ea-abH" secondAttribute="leadingMargin" id="8pf-xe-wJL"/>
+                            <constraint firstItem="flb-Bt-JTO" firstAttribute="top" secondItem="DXh-Jf-IZO" secondAttribute="bottom" constant="8" id="DbA-lc-EdO"/>
+                            <constraint firstItem="DXh-Jf-IZO" firstAttribute="trailing" secondItem="UBV-Ea-abH" secondAttribute="trailingMargin" id="bIW-f7-Cgy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="flb-Bt-JTO" secondAttribute="trailing" id="gFy-Ih-PsZ"/>
+                            <constraint firstItem="DXh-Jf-IZO" firstAttribute="leading" secondItem="UBV-Ea-abH" secondAttribute="leadingMargin" id="gp4-py-8bP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Desk" id="nhO-jj-NAN"/>
+                    <connections>
+                        <outlet property="linkTextField" destination="Wij-ZI-d0M" id="VCx-r4-nS3"/>
+                        <outlet property="nameTextField" destination="DXh-Jf-IZO" id="gG6-gu-zJg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhi-FK-pSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854.375" y="42.25352112676056"/>
+        </scene>
+        <!--New Note View Controller-->
+        <scene sceneID="oWt-zG-Y66">
+            <objects>
+                <viewController id="IpX-Jc-wOY" customClass="NewNoteViewController" customModule="KNBN" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S3P-RF-osE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y4k-JC-I83"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bf9-Zr-Lar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y1r-KW-wH0"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="XYC-3w-DnO" kind="unwind" identifier="unwind" unwindAction="unwindWithSegue:" id="YUe-vP-aw9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dCm-9l-jNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XYC-3w-DnO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="793" y="817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ima-AO-B7x">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0D-Gw-fX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XU6-qk-nlO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="q2U-Tr-fRM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="IpX-Jc-wOY" kind="relationship" relationship="rootViewController" id="k1h-En-rA4"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="60" y="817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="12k-Ea-u5l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nf0-9x-DzL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="f76-XJ-PYE">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                            <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hqw-FD-Ym7" kind="relationship" relationship="rootViewController" id="BWS-qI-omP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HQx-vw-40i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856.875" y="42.25352112676056"/>
+        </scene>
+    </scenes>
+</document>
