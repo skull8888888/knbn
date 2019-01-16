@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import Hero
 
 protocol BoardCollectionViewCellDelegate {
     func scrollTo(point: CGPoint)
@@ -303,11 +302,8 @@ class BoardCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDat
         cell.angle = CGFloat(note.angle)
         cell.color = UIColor(hex: note.color as String)
         
-        cell.containerView.heroID = "body\(note.text as String)"
-        
         cell.isHidden = false
-        cell.textLabel.heroID = "text\(note.text as String)"
-//        cell.textLabel.heroModifiers = [.duration(0.0), .opacity(CGFloat(0))]
+
     }
     
 }

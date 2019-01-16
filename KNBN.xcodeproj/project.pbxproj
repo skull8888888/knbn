@@ -16,17 +16,16 @@
 		2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */; };
 		2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */; };
 		2FCC27F61FC1B846004108E3 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */; };
-		2FD3ADEB1ED6E41900BC9A42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */; };
 		2FD3ADED1ED6FE6100BC9A42 /* NewDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3ADEC1ED6FE6100BC9A42 /* NewDeskViewController.swift */; };
 		2FE092091ECD5C42001DD542 /* BoardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092081ECD5C42001DD542 /* BoardCollectionView.swift */; };
 		2FE092141ECD727A001DD542 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092121ECD727A001DD542 /* CollectionViewCell.swift */; };
 		2FE092151ECD727A001DD542 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE092131ECD727A001DD542 /* CollectionViewCell.xib */; };
 		2FE0CA561ED2C5740011382D /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */; };
-		764E2C7EC3D9F81C0D47C584 /* Pods_KNBN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */; };
+		6F1D34DA128214DEA0319DAE /* Pods_KNBN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654CEEA7B112E927A432E07D /* Pods_KNBN.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.debug.xcconfig"; sourceTree = "<group>"; };
+		10B11045E35D95B76A29A83E /* Pods-KNBN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.debug.xcconfig"; sourceTree = "<group>"; };
 		2F80245C1EDEACCB00E61CF1 /* DesksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesksView.swift; sourceTree = "<group>"; };
 		2F80245E1EDEAD9D00E61CF1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2F80245F1EDEAD9D00E61CF1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -38,14 +37,13 @@
 		2FC1EDE31EC8A304009C9B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FC1EDE51EC8A304009C9B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
-		2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FD3ADEC1ED6FE6100BC9A42 /* NewDeskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDeskViewController.swift; sourceTree = "<group>"; };
 		2FE092081ECD5C42001DD542 /* BoardCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardCollectionView.swift; sourceTree = "<group>"; };
 		2FE092121ECD727A001DD542 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2FE092131ECD727A001DD542 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
-		4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.release.xcconfig"; sourceTree = "<group>"; };
-		EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KNBN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		654CEEA7B112E927A432E07D /* Pods_KNBN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KNBN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE343EF01563EAB0B85854FB /* Pods-KNBN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.release.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,29 +51,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				764E2C7EC3D9F81C0D47C584 /* Pods_KNBN.framework in Frameworks */,
+				6F1D34DA128214DEA0319DAE /* Pods_KNBN.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11ECB7114197B629B416DC75 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */,
-				4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		2FC1EDCD1EC8A304009C9B11 = {
 			isa = PBXGroup;
 			children = (
 				2FC1EDD81EC8A304009C9B11 /* KNBN */,
 				2FC1EDD71EC8A304009C9B11 /* Products */,
-				11ECB7114197B629B416DC75 /* Pods */,
-				7D576333C8FE980357675091 /* Frameworks */,
+				EC4D14A16A54781C3644B28F /* Pods */,
+				BC566F855D2CC74555EBA7C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,7 +86,6 @@
 				2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */,
 				2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */,
 				2FC1EDE51EC8A304009C9B11 /* Info.plist */,
-				2FD3ADEA1ED6E41900BC9A42 /* GoogleService-Info.plist */,
 			);
 			path = KNBN;
 			sourceTree = "<group>";
@@ -134,12 +122,21 @@
 			name = xibs;
 			sourceTree = "<group>";
 		};
-		7D576333C8FE980357675091 /* Frameworks */ = {
+		BC566F855D2CC74555EBA7C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB9F86A266B73323D7B20443 /* Pods_KNBN.framework */,
+				654CEEA7B112E927A432E07D /* Pods_KNBN.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC4D14A16A54781C3644B28F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10B11045E35D95B76A29A83E /* Pods-KNBN.debug.xcconfig */,
+				AE343EF01563EAB0B85854FB /* Pods-KNBN.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,12 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FC1EDE81EC8A304009C9B11 /* Build configuration list for PBXNativeTarget "KNBN" */;
 			buildPhases = (
-				8A210A41B0C3CA4730DCD57E /* [CP] Check Pods Manifest.lock */,
+				8ECFD99F89D05EBD97F37FB8 /* [CP] Check Pods Manifest.lock */,
 				2FC1EDD21EC8A304009C9B11 /* Sources */,
 				2FC1EDD31EC8A304009C9B11 /* Frameworks */,
 				2FC1EDD41EC8A304009C9B11 /* Resources */,
-				4E9004A5794732FA4DFC1FD0 /* [CP] Embed Pods Frameworks */,
-				AACFC901239A099083C8A3B4 /* [CP] Copy Pods Resources */,
+				E8932BBD9C7C3D0A86E5B45F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +201,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD3ADEB1ED6E41900BC9A42 /* GoogleService-Info.plist in Resources */,
 				2F8024611EDEAD9D00E61CF1 /* TableViewCell.xib in Resources */,
 				2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */,
 				2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */,
@@ -217,40 +212,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E9004A5794732FA4DFC1FD0 /* [CP] Embed Pods Frameworks */ = {
+		8ECFD99F89D05EBD97F37FB8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A210A41B0C3CA4730DCD57E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-KNBN-checkManifestLockResult.txt",
 			);
@@ -259,19 +234,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AACFC901239A099083C8A3B4 /* [CP] Copy Pods Resources */ = {
+		E8932BBD9C7C3D0A86E5B45F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -410,14 +394,14 @@
 		};
 		2FC1EDE91EC8A304009C9B11 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2063D32EF5BB054C75B4848E /* Pods-KNBN.debug.xcconfig */;
+			baseConfigurationReference = 10B11045E35D95B76A29A83E /* Pods-KNBN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AVV373JF5Z;
 				INFOPLIST_FILE = KNBN/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Octopus.KNBN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,14 +412,14 @@
 		};
 		2FC1EDEA1EC8A304009C9B11 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C6463DF12130D97B2C0AE29 /* Pods-KNBN.release.xcconfig */;
+			baseConfigurationReference = AE343EF01563EAB0B85854FB /* Pods-KNBN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AVV373JF5Z;
 				INFOPLIST_FILE = KNBN/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Octopus.KNBN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
