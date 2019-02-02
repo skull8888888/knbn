@@ -10,7 +10,6 @@ import UIKit
 
 class CollectionViewLayout: UICollectionViewLayout {
     
-    
     let screen: CGRect = UIScreen.main.bounds
     
     var cellHeight: CGFloat = UIScreen.main.bounds.width / 2 - 24
