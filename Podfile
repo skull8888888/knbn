@@ -6,7 +6,7 @@ target 'KNBN' do
   use_frameworks!
 
   # Pods for KNBN
-#  pod 'Realm'
   pod 'RealmSwift'
+  pod 'SnapKit'
 #
 end

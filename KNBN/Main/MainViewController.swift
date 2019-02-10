@@ -20,11 +20,7 @@ class MainViewController: UIViewController {
         notesCollectionView = NotesCollectionView(frame: .zero)
         self.view.addSubview(notesCollectionView)
         notesCollectionView.snp.makeConstraints { (make) in
-            if #available(iOS 11.0, *) {
-                make.leading.top.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            } else {
-                make.leading.top.trailing.bottom.equalTo(self.view)
-            }
+            make.leading.top.trailing.bottom.equalTo(self.view)
         }
         notesCollectionView.delegate = self
 
@@ -37,9 +33,9 @@ class MainViewController: UIViewController {
             make.height.equalTo(48)
             
             if #available(iOS 11.0, *) {
-                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(8)
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-8)
             } else {
-                make.bottom.equalTo(self.view.snp.bottom).offset(8)
+                make.bottom.equalTo(self.view.snp.bottom).offset(-8)
             }
         }
         
@@ -59,7 +55,8 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
         navigationItem.title = "TO DO"
      
-        hideNavigationBar()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +65,8 @@ class MainViewController: UIViewController {
     
     @objc func presentNewNoteVC(){
         let newNoteVC = NewNoteViewController()
+        let lastIndex = notesCollectionView.getLastIndexOfToDoSection()
+        newNoteVC.mode = .create(lastIndex)
         self.present(UINavigationController(rootViewController: newNoteVC), animated: true, completion: nil)
     }
     
