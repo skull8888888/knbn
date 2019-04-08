@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F25F90422130BC600EA0DFB /* BoardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F25F90322130BC600EA0DFB /* BoardsTableViewController.swift */; };
+		2F25F90822130F7200EA0DFB /* BoardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F25F90622130F7200EA0DFB /* BoardsTableViewCell.swift */; };
+		2F25F90922130F7200EA0DFB /* BoardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F25F90722130F7200EA0DFB /* BoardsTableViewCell.xib */; };
 		2F5F105621F0C6EA001E7992 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F105521F0C6EA001E7992 /* Standard.swift */; };
 		2F6192FE21F382E60094FBFF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6192FD21F382E60094FBFF /* Colors.xcassets */; };
 		2F61930021F394E50094FBFF /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6192FF21F394E50094FBFF /* ColorPickerView.swift */; };
@@ -14,12 +17,13 @@
 		2F61930421F3A2FF0094FBFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F61930321F3A2FF0094FBFF /* Main.storyboard */; };
 		2FA15FEA21F0C4810044130D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA15FE921F0C4810044130D /* Model.swift */; };
 		2FA15FEC21F0C48B0044130D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA15FEB21F0C48B0044130D /* Extensions.swift */; };
+		2FBA2A422259DC8A008CB61E /* KanbanViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBA2A412259DC8A008CB61E /* KanbanViewDelegate.swift */; };
 		2FC1EDDA1EC8A304009C9B11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */; };
 		2FC1EDDC1EC8A304009C9B11 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */; };
 		2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */; };
 		2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */; };
-		2FCC27F61FC1B846004108E3 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */; };
-		2FE092091ECD5C42001DD542 /* NotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092081ECD5C42001DD542 /* NotesCollectionView.swift */; };
+		2FCC27F61FC1B846004108E3 /* KanbanCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC27F51FC1B846004108E3 /* KanbanCollectionViewLayout.swift */; };
+		2FE092091ECD5C42001DD542 /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092081ECD5C42001DD542 /* KanbanView.swift */; };
 		2FE092141ECD727A001DD542 /* NotesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE092121ECD727A001DD542 /* NotesCollectionViewCell.swift */; };
 		2FE092151ECD727A001DD542 /* NotesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE092131ECD727A001DD542 /* NotesCollectionViewCell.xib */; };
 		2FE0CA561ED2C5740011382D /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */; };
@@ -28,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		10B11045E35D95B76A29A83E /* Pods-KNBN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KNBN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KNBN/Pods-KNBN.debug.xcconfig"; sourceTree = "<group>"; };
+		2F25F90322130BC600EA0DFB /* BoardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsTableViewController.swift; sourceTree = "<group>"; };
+		2F25F90622130F7200EA0DFB /* BoardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsTableViewCell.swift; sourceTree = "<group>"; };
+		2F25F90722130F7200EA0DFB /* BoardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardsTableViewCell.xib; sourceTree = "<group>"; };
 		2F5F105521F0C6EA001E7992 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
 		2F6192FD21F382E60094FBFF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2F6192FF21F394E50094FBFF /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
@@ -35,14 +42,15 @@
 		2F61930321F3A2FF0094FBFF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2FA15FE921F0C4810044130D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2FA15FEB21F0C48B0044130D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2FBA2A412259DC8A008CB61E /* KanbanViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewDelegate.swift; sourceTree = "<group>"; };
 		2FC1EDD61EC8A304009C9B11 /* KNBN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNBN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FC1EDE31EC8A304009C9B11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FC1EDE51EC8A304009C9B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
-		2FE092081ECD5C42001DD542 /* NotesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCollectionView.swift; sourceTree = "<group>"; };
+		2FCC27F51FC1B846004108E3 /* KanbanCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanbanCollectionViewLayout.swift; sourceTree = "<group>"; };
+		2FE092081ECD5C42001DD542 /* KanbanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 		2FE092121ECD727A001DD542 /* NotesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FE092131ECD727A001DD542 /* NotesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesCollectionViewCell.xib; sourceTree = "<group>"; };
 		2FE0CA551ED2C5740011382D /* NewNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
@@ -62,12 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F25F90522130C0C00EA0DFB /* Boards */ = {
+			isa = PBXGroup;
+			children = (
+				2F25F90322130BC600EA0DFB /* BoardsTableViewController.swift */,
+				2F25F90622130F7200EA0DFB /* BoardsTableViewCell.swift */,
+				2F25F90722130F7200EA0DFB /* BoardsTableViewCell.xib */,
+			);
+			path = Boards;
+			sourceTree = "<group>";
+		};
 		2F6192FC21F347D80094FBFF /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				2FC1EDDB1EC8A304009C9B11 /* MainViewController.swift */,
-				2FE092081ECD5C42001DD542 /* NotesCollectionView.swift */,
-				2FCC27F51FC1B846004108E3 /* CollectionViewLayout.swift */,
 				2FE092121ECD727A001DD542 /* NotesCollectionViewCell.swift */,
 				2FE092131ECD727A001DD542 /* NotesCollectionViewCell.xib */,
 			);
@@ -82,6 +98,16 @@
 				2F61930121F397E90094FBFF /* ColorPickerMasterView.swift */,
 			);
 			path = "New Note";
+			sourceTree = "<group>";
+		};
+		2FBA2A432259DF64008CB61E /* Kanban */ = {
+			isa = PBXGroup;
+			children = (
+				2FE092081ECD5C42001DD542 /* KanbanView.swift */,
+				2FBA2A412259DC8A008CB61E /* KanbanViewDelegate.swift */,
+				2FCC27F51FC1B846004108E3 /* KanbanCollectionViewLayout.swift */,
+			);
+			path = Kanban;
 			sourceTree = "<group>";
 		};
 		2FC1EDCD1EC8A304009C9B11 = {
@@ -107,7 +133,9 @@
 			children = (
 				2FC1EDD91EC8A304009C9B11 /* AppDelegate.swift */,
 				2F6192FC21F347D80094FBFF /* Main */,
+				2F25F90522130C0C00EA0DFB /* Boards */,
 				2F61930521F3A99C0094FBFF /* New Note */,
+				2FBA2A432259DF64008CB61E /* Kanban */,
 				2FA15FE921F0C4810044130D /* Model.swift */,
 				2F5F105521F0C6EA001E7992 /* Standard.swift */,
 				2FA15FEB21F0C48B0044130D /* Extensions.swift */,
@@ -182,6 +210,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -202,6 +231,7 @@
 			files = (
 				2F6192FE21F382E60094FBFF /* Colors.xcassets in Resources */,
 				2F61930421F3A2FF0094FBFF /* Main.storyboard in Resources */,
+				2F25F90922130F7200EA0DFB /* BoardsTableViewCell.xib in Resources */,
 				2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */,
 				2FC1EDE11EC8A304009C9B11 /* Assets.xcassets in Resources */,
 				2FE092151ECD727A001DD542 /* NotesCollectionViewCell.xib in Resources */,
@@ -222,6 +252,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -230,6 +261,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,11 +303,14 @@
 				2FC1EDDC1EC8A304009C9B11 /* MainViewController.swift in Sources */,
 				2FE092141ECD727A001DD542 /* NotesCollectionViewCell.swift in Sources */,
 				2F61930021F394E50094FBFF /* ColorPickerView.swift in Sources */,
-				2FCC27F61FC1B846004108E3 /* CollectionViewLayout.swift in Sources */,
+				2FCC27F61FC1B846004108E3 /* KanbanCollectionViewLayout.swift in Sources */,
+				2FBA2A422259DC8A008CB61E /* KanbanViewDelegate.swift in Sources */,
 				2F61930221F397E90094FBFF /* ColorPickerMasterView.swift in Sources */,
+				2F25F90822130F7200EA0DFB /* BoardsTableViewCell.swift in Sources */,
 				2F5F105621F0C6EA001E7992 /* Standard.swift in Sources */,
+				2F25F90422130BC600EA0DFB /* BoardsTableViewController.swift in Sources */,
 				2FC1EDDA1EC8A304009C9B11 /* AppDelegate.swift in Sources */,
-				2FE092091ECD5C42001DD542 /* NotesCollectionView.swift in Sources */,
+				2FE092091ECD5C42001DD542 /* KanbanView.swift in Sources */,
 				2FA15FEA21F0C4810044130D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

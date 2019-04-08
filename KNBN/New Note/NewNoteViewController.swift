@@ -129,10 +129,13 @@ class NewNoteViewController: UIViewController {
             note.color = self.mainColorString
             note.index = lastIndex
             note.section = 0
+            note.createdDate = Date()
+            note.editedDate = Date()
             
             Model.shared.add(note)
             
         case .edit(let note):
+            note.editedDate = Date()
             Model.shared.delete(note)
         }
         

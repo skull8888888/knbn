@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import MobileCoreServices
 
-final class Note: Object, Codable {
+final class Note: Object, Codable, KanbanItem {
     
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var text: String = ""
@@ -18,6 +18,9 @@ final class Note: Object, Codable {
     @objc dynamic var color: String = ""
     @objc dynamic var index: Int = 0
     @objc dynamic var section: Int = 0
+    
+    @objc dynamic var createdDate: Date = Date(timeIntervalSince1970: 1)
+    @objc dynamic var editedDate: Date = Date(timeIntervalSince1970: 1)
     
     override static func primaryKey() -> String? {
         return "id"
@@ -91,25 +94,36 @@ struct Model {
                 if (oldSchemaVersion < Standard.schemaVersion) {
                     
                     migration.enumerateObjects(ofType: Note.className(), { (old, new) in
-                        
-                        new?["id"] = UUID().uuidString
-                        
-                        if let oldType = old?["type"] as? String {
+    
+                        switch oldSchemaVersion {
+                        case 0:
+                            new?["id"] = UUID().uuidString
                             
-                            var newType = 0
-                            
-                            if oldType == "ToDo" {
-                                newType = 0
-                            } else if oldType == "Progress"{
-                                newType = 1
-                            } else {
-                                newType = 2
+                            if let oldType = old?["type"] as? String {
+                                
+                                var newType = 0
+                                
+                                if oldType == "ToDo" {
+                                    newType = 0
+                                } else if oldType == "Progress"{
+                                    newType = 1
+                                } else {
+                                    newType = 2
+                                }
+                                
+                                new?["section"] = newType
+                                
+                            } else if let oldType = old?["type"] as? Int {
+                                new?["section"] = oldType
                             }
                             
-                            new?["section"] = newType
+                        case 1:
                             
-                        } else if let oldType = old?["type"] as? Int {
-                            new?["section"] = oldType
+                            new?["createdDate"] = Date(timeIntervalSince1970: 1)
+                            new?["editedDate"] = Date(timeIntervalSince1970: 1)
+                            
+                        default: break
+                            
                         }
                         
                     })

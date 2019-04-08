@@ -17,7 +17,7 @@ class NotesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        underView.dropShadow(cornerRadius: 8, shadowRadius: 8, y: 6, opacity: 0.2)
+        underView.dropShadow(cornerRadius: 8, shadowRadius: 8, y: 6, opacity: 0.3)
     
         containerView.layer.cornerRadius = 8
         underView.layer.cornerRadius = 8

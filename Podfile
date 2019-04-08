@@ -8,5 +8,6 @@ target 'KNBN' do
   # Pods for KNBN
   pod 'RealmSwift'
   pod 'SnapKit'
+  pod 'SideMenu'
 #
 end
