@@ -1,6 +1,0 @@
-framework module Pods_KNBN {
-  umbrella header "Pods-KNBN-umbrella.h"
-
-  export *
-  module * { export * }
-}

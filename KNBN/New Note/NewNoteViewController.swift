@@ -135,7 +135,6 @@ class NewNoteViewController: UIViewController {
             Model.shared.add(note)
             
         case .edit(let note):
-            note.editedDate = Date()
             Model.shared.delete(note)
         }
         

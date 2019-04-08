@@ -62,8 +62,8 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        let menuButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: #selector(didTappedMenuButtonItem))
-        self.navigationItem.leftBarButtonItem = menuButtonItem
+//        let menuButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: #selector(didTappedMenuButtonItem))
+//        self.navigationItem.leftBarButtonItem = menuButtonItem
         
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: BoardsTableViewController())
         // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration

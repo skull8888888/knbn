@@ -186,6 +186,7 @@ struct Model {
         try! realm.write {
             note?.text = text
             note?.color = colorHEX
+            note?.editedDate = Date()
         }
         
     }

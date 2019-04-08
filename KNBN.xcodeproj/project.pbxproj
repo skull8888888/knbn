@@ -11,7 +11,6 @@
 		2F25F90822130F7200EA0DFB /* BoardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F25F90622130F7200EA0DFB /* BoardsTableViewCell.swift */; };
 		2F25F90922130F7200EA0DFB /* BoardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F25F90722130F7200EA0DFB /* BoardsTableViewCell.xib */; };
 		2F5F105621F0C6EA001E7992 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F105521F0C6EA001E7992 /* Standard.swift */; };
-		2F6192FE21F382E60094FBFF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6192FD21F382E60094FBFF /* Colors.xcassets */; };
 		2F61930021F394E50094FBFF /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6192FF21F394E50094FBFF /* ColorPickerView.swift */; };
 		2F61930221F397E90094FBFF /* ColorPickerMasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61930121F397E90094FBFF /* ColorPickerMasterView.swift */; };
 		2F61930421F3A2FF0094FBFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F61930321F3A2FF0094FBFF /* Main.storyboard */; };
@@ -36,7 +35,6 @@
 		2F25F90622130F7200EA0DFB /* BoardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsTableViewCell.swift; sourceTree = "<group>"; };
 		2F25F90722130F7200EA0DFB /* BoardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardsTableViewCell.xib; sourceTree = "<group>"; };
 		2F5F105521F0C6EA001E7992 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
-		2F6192FD21F382E60094FBFF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2F6192FF21F394E50094FBFF /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		2F61930121F397E90094FBFF /* ColorPickerMasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerMasterView.swift; sourceTree = "<group>"; };
 		2F61930321F3A2FF0094FBFF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				2FA15FEB21F0C48B0044130D /* Extensions.swift */,
 				2F61930321F3A2FF0094FBFF /* Main.storyboard */,
 				2FC1EDE01EC8A304009C9B11 /* Assets.xcassets */,
-				2F6192FD21F382E60094FBFF /* Colors.xcassets */,
 				2FC1EDE21EC8A304009C9B11 /* LaunchScreen.storyboard */,
 				2FC1EDE51EC8A304009C9B11 /* Info.plist */,
 			);
@@ -176,7 +173,7 @@
 				2FC1EDD21EC8A304009C9B11 /* Sources */,
 				2FC1EDD31EC8A304009C9B11 /* Frameworks */,
 				2FC1EDD41EC8A304009C9B11 /* Resources */,
-				2E52FCBB3AC82C90A39A9CED /* [CP] Embed Pods Frameworks */,
+				EFFC34FAF66F5A00D94A3AB6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,7 +226,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6192FE21F382E60094FBFF /* Colors.xcassets in Resources */,
 				2F61930421F3A2FF0094FBFF /* Main.storyboard in Resources */,
 				2F25F90922130F7200EA0DFB /* BoardsTableViewCell.xib in Resources */,
 				2FC1EDE41EC8A304009C9B11 /* LaunchScreen.storyboard in Resources */,
@@ -241,7 +237,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E52FCBB3AC82C90A39A9CED /* [CP] Embed Pods Frameworks */ = {
+		8ECFD99F89D05EBD97F37FB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KNBN-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFFC34FAF66F5A00D94A3AB6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,28 +285,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KNBN/Pods-KNBN-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8ECFD99F89D05EBD97F37FB8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KNBN-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
