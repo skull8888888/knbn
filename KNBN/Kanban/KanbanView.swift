@@ -54,6 +54,7 @@ class KanbanView: UIView {
         layout.cellHeight = (UIScreen.main.bounds.width - 48) / 2
         layout.cellWidth = UIScreen.main.bounds.width / 2 - 24
         layout.topPadding = 120.0
+        layout.bottomPadding = 120.0
         layout.leftPadding = 24
         layout.numberOfCellsInRow = 2
     
@@ -80,9 +81,6 @@ class KanbanView: UIView {
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(_:)))
         self.addGestureRecognizer(longPressGesture)
-        
-//        self.data = Model.shared.getData()
-        collectionView.reloadData()
         
     }
 
@@ -128,17 +126,13 @@ extension KanbanView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-
-        print("MOVED CELL FROM \(sourceIndexPath) TO \(destinationIndexPath)")
-
+        
         let sourceItem = data[sourceIndexPath.section][sourceIndexPath.item]
 
         data[sourceIndexPath.section].remove(at: sourceIndexPath.item)
         data[destinationIndexPath.section].insert(sourceItem, at: destinationIndexPath.item)
         
         delegate?.kanbanView(self, didChangeOrderOfItems: data)
-        
-//        Model.shared.saveItemsOrder(data)
         
     }
 
@@ -157,16 +151,21 @@ extension KanbanView: UICollectionViewDelegate {
                 break
             }
             
-            self.currentlyMovingCellClone = self.collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? NotesCollectionViewCell
+            if self.currentlyMovingCellClone == nil {
+                self.currentlyMovingCellClone = self.collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? NotesCollectionViewCell
+            }
             
             let item = data[indexPath.section][indexPath.item]
             delegate?.kanbanView(self, configureCell: self.currentlyMovingCellClone, with: item, at: indexPath)
             
-            self.addSubview(self.currentlyMovingCellClone)
             
             let pointInCollectionView = gesture.location(in: self.collectionView)
             
             if let cell = collectionView.cellForItem(at: indexPath) as? NotesCollectionViewCell {
+                
+                self.currentlyMovingCellClone.frame = cell.frame
+                self.addSubview(self.currentlyMovingCellClone)
+                
                 cell.isHidden = true
                 self.currentlyMovingCell = cell
             }
@@ -194,7 +193,6 @@ extension KanbanView: UICollectionViewDelegate {
                 let maxX = CGFloat(self.currentSection + 1) * frame.width - differentSectionThreshold
                 let minX = CGFloat(self.currentSection) * frame.width + differentSectionThreshold
                 
-
                 if x > maxX {
                     self.scrollToSectionWithIndex(self.currentSection + 1)
                 } else if x < minX {
@@ -205,11 +203,12 @@ extension KanbanView: UICollectionViewDelegate {
 
         case .ended:
             
+            guard self.currentlyMovingCell != nil else { return }
+            
             self.currentlyMovingCell.isHidden = false
             self.currentlyMovingCellClone.removeFromSuperview()
             self.collectionView.endInteractiveMovement()
             
-            self.currentlyMovingCellClone = nil
             self.isTransferingCellToDifferentSection = false
             
         default:
@@ -244,12 +243,10 @@ extension KanbanView: UICollectionViewDelegate {
     }
     
     func removeNote(at indexPath: IndexPath) {
-        print("REMOVING AT ", indexPath)
         data[indexPath.section].remove(at: indexPath.item)
     }
     
     func insertNote(_ note: Note, at indexPath: IndexPath) {
-        print("inserting AT ", indexPath)
         data[indexPath.section].insert(note, at: indexPath.item)
     }
 
@@ -303,20 +300,5 @@ extension KanbanView: UICollectionViewDataSource {
         return cell
         
     }
-    
-//    func configureCell(_ cell: NotesCollectionViewCell, indexPath: IndexPath) {
-// 
-////        let note = data[indexPath.section][indexPath.item]
-////
-////        cell.textLabel.text = note.text
-////
-////        let transform = CGAffineTransform(rotationAngle: note.angle)
-////        cell.containerView.transform = transform
-////        cell.underView.transform = transform
-////
-////        cell.containerView.backgroundColor = UIColor(hex: note.color)
-////        cell.underView.backgroundColor = UIColor(hex: note.color)
-//
-//    }
-    
+
 }
