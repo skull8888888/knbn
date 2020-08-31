@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Model.shared.migrate()
         
-        setupDefault()
+//        setupDefault()
         
         return true
     }
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupDefault(){
         
         UINavigationBar.appearance().tintColor = .tint
-                
+        
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .heavy),
             NSAttributedString.Key.foregroundColor: UIColor.tint,

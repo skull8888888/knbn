@@ -12,19 +12,27 @@ import SnapKit
 
 class KanbanView: UIView {
     
+    enum Standard {
+        static let cellIdentifier = "Cell"
+        static let cellBundleName = "NotesCollectionViewCell"
+    }
+    
     private var collectionView: UICollectionView!
     private var layout: KanbanCollectionViewLayout!
     private var scrollView: UIScrollView!
+    private var selectedIndexPath: IndexPath!
     
     var currentSection = 0
     var data = [[KanbanItem]]()
     
     private var isTransferingCellToDifferentSection = false
-    private var currentlyMovingCell: NotesCollectionViewCell!
-    private var currentlyMovingCellClone: NotesCollectionViewCell!
+    private var currentlyMovingCell: UICollectionViewCell!
+    private var currentlyMovingCellClone: UICollectionViewCell!
     
     weak var delegate: KanbanViewDelegate?
-//    weak var layoutDelegate: KanbanViewLa
+    
+
+    var animating: Bool = false;
     
     
     private var differentSectionThreshold: CGFloat = 40.0
@@ -36,6 +44,7 @@ class KanbanView: UIView {
         self.frame = frame
         self.clipsToBounds = false
         
+
         scrollView = UIScrollView(frame: .zero)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -50,12 +59,11 @@ class KanbanView: UIView {
         scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
         layout = KanbanCollectionViewLayout()
-//        layout.delegate =
-        layout.cellHeight = (UIScreen.main.bounds.width - 48) / 2
-        layout.cellWidth = UIScreen.main.bounds.width / 2 - 24
+        layout.cellHeight = (UIScreen.main.bounds.width - 40) / 2
+        layout.cellWidth = UIScreen.main.bounds.width / 2 - 20
         layout.topPadding = 120.0
         layout.bottomPadding = 120.0
-        layout.leftPadding = 24
+        layout.leftPadding = 20
         layout.numberOfCellsInRow = 2
     
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -72,7 +80,7 @@ class KanbanView: UIView {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "NotesCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "Cell")
+        collectionView.register(UINib(nibName: Standard.cellBundleName, bundle: nil) , forCellWithReuseIdentifier: Standard.cellIdentifier)
         collectionView.clipsToBounds = false
         collectionView.bounces = true
         
@@ -115,13 +123,13 @@ extension KanbanView: UICollectionViewDelegate {
         return true
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath, toProposedIndexPath proposedIndexPath: IndexPath) -> IndexPath {
         
         if isTransferingCellToDifferentSection && proposedIndexPath.section != self.currentSection {
             return IndexPath(row: self.data[self.currentSection].count, section: self.currentSection)
         }
-        
+
         return proposedIndexPath
     }
     
@@ -146,39 +154,42 @@ extension KanbanView: UICollectionViewDelegate {
         switch(gesture.state) {
 
         case .began:
-            
             guard let indexPath = self.collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
                 break
             }
-            
-            if self.currentlyMovingCellClone == nil {
-                self.currentlyMovingCellClone = self.collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? NotesCollectionViewCell
-            }
-            
-            let item = data[indexPath.section][indexPath.item]
-            delegate?.kanbanView(self, configureCell: self.currentlyMovingCellClone, with: item, at: indexPath)
-            
+        
+            self.selectedIndexPath = indexPath
             
             let pointInCollectionView = gesture.location(in: self.collectionView)
             
-            if let cell = collectionView.cellForItem(at: indexPath) as? NotesCollectionViewCell {
-                
-                self.currentlyMovingCellClone.frame = cell.frame
-                self.addSubview(self.currentlyMovingCellClone)
-                
-                cell.isHidden = true
-                self.currentlyMovingCell = cell
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NotesCollectionViewCell else {
+                return
             }
-        
+            
+            self.currentlyMovingCell = cell
+            
             collectionView.beginInteractiveMovementForItem(at: indexPath)
+            collectionView.updateInteractiveMovementTargetPosition(pointInCollectionView)
             
             UIView.animate(withDuration: 0.1, animations: {
-                self.currentlyMovingCellClone.center = pointInCollectionView
+                self.currentlyMovingCell.center = pointInCollectionView
             })
             
         case .changed:
-
-            guard self.currentlyMovingCellClone != nil else { break }
+            
+            if currentlyMovingCellClone == nil {
+                
+                self.currentlyMovingCellClone = self.collectionView.dequeueReusableCell(withReuseIdentifier: Standard.cellIdentifier, for: selectedIndexPath)
+                           
+                let item = data[selectedIndexPath.section][selectedIndexPath.item]
+                delegate?.kanbanView(self, configureCell: self.currentlyMovingCellClone, with: item, at: selectedIndexPath)
+                currentlyMovingCellClone.isHidden = false
+                currentlyMovingCellClone.frame = currentlyMovingCell.frame
+                self.addSubview(currentlyMovingCellClone)
+                
+                currentlyMovingCell.isHidden = true
+            
+            }
             
             let pointInSelf = gesture.location(in: gesture.view)
             self.currentlyMovingCellClone.center = pointInSelf
@@ -203,10 +214,13 @@ extension KanbanView: UICollectionViewDelegate {
 
         case .ended:
             
-            guard self.currentlyMovingCell != nil else { return }
-            
             self.currentlyMovingCell.isHidden = false
-            self.currentlyMovingCellClone.removeFromSuperview()
+    
+            if self.currentlyMovingCellClone != nil {
+                self.currentlyMovingCellClone.removeFromSuperview()
+                self.currentlyMovingCellClone = nil
+            }
+            
             self.collectionView.endInteractiveMovement()
             
             self.isTransferingCellToDifferentSection = false
@@ -222,6 +236,13 @@ extension KanbanView: UICollectionViewDelegate {
         }
 
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        
+//        
+//        return
+//        
+//    }
 
     func scrollToSectionWithIndex(_ index: Int){
 

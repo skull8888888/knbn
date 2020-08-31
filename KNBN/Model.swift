@@ -14,7 +14,6 @@ final class Note: Object, Codable, KanbanItem {
     
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var text: String = ""
-    @objc dynamic var angle: CGFloat = 0.0
     @objc dynamic var color: String = ""
     @objc dynamic var index: Int = 0
     @objc dynamic var section: Int = 0
@@ -122,6 +121,8 @@ struct Model {
                             new?["createdDate"] = Date(timeIntervalSince1970: 1)
                             new?["editedDate"] = Date(timeIntervalSince1970: 1)
                             
+//                        case 2:
+//                            
                         default: break
                             
                         }

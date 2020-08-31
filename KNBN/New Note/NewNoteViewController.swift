@@ -41,8 +41,8 @@ class NewNoteViewController: UIViewController {
         
         self.view.backgroundColor = .red
         
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     
         counterLabel = UILabel(frame: CGRect(x:0,y:0,width:120, height:18))
         counterLabel.textAlignment = .center
@@ -63,11 +63,7 @@ class NewNoteViewController: UIViewController {
         self.view.addSubview(colorPickerMasterView)
         
         textView.snp.makeConstraints { (make) in
-            if #available(iOS 11.0, *) {
-                make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            } else {
-                make.leading.top.trailing.equalTo(self.view)
-            }
+            make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.equalTo(colorPickerMasterView.snp.top).offset(0)
         }
         
@@ -125,7 +121,6 @@ class NewNoteViewController: UIViewController {
             let note = Note()
             note.id = UUID().uuidString
             note.text = self.textView.text
-            note.angle = generateRandomAngle()
             note.color = self.mainColorString
             note.index = lastIndex
             note.section = 0
@@ -140,17 +135,6 @@ class NewNoteViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
        
-    }
-    
-    private func generateRandomAngle() -> CGFloat {
-        
-        var angle = (CGFloat(.pi / (175 - Double(arc4random_uniform(5)))))
-        
-        if Int(arc4random_uniform(2)) == 0{
-            angle = angle * -1
-        }
-        
-        return angle
     }
     
     @objc func cancelButtonDidTapped(){

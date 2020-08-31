@@ -11,6 +11,12 @@ import SideMenu
 
 class MainViewController: UIViewController {
     
+    enum SectionTitle: String {
+        case todo = "ToDo"
+        case progress = "Progress"
+        case done = "Done"
+    }
+    
     var kanbanView: KanbanView!
     
     override func viewDidLoad() {
@@ -22,17 +28,14 @@ class MainViewController: UIViewController {
         self.view.addSubview(kanbanView)
         
         kanbanView.snp.makeConstraints { (make) in
-            if #available(iOS 11.0, *) {
-                make.leading.top.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            } else {
-                make.leading.top.trailing.bottom.equalTo(self.view)
-            }
+            make.leading.top.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         kanbanView.delegate = self
         kanbanView.reload(data: Model.shared.getData())
 
         let addNoteButton = UIButton(frame: .zero)
         self.view.addSubview(addNoteButton)
+        
         addNoteButton.snp.makeConstraints { (make) in
             
             make.leading.equalTo(self.view).offset(32)
@@ -57,21 +60,50 @@ class MainViewController: UIViewController {
         
         self.view.bringSubviewToFront(addNoteButton)
        
-        navigationItem.title = "TO DO"
-     
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        navigationItem.title = SectionTitle.todo.rawValue
+        
+        let label = UILabel()
+        label.text = "8 notes"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.textColor = .lightGray
+        
+        let counterItem = UIBarButtonItem(customView: label)
+                
+        navigationItem.leftBarButtonItem = counterItem
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
+        if #available(iOS 13.0, *) {
+            
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            
+            appearance.backgroundColor = UIColor.white
+        
+            navigationItem.standardAppearance = appearance
+            navigationItem.scrollEdgeAppearance = appearance
+            navigationItem.compactAppearance = appearance
+    
+        } else {
+
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.backgroundColor = .white
+            self.navigationController?.navigationBar.barTintColor = .white
+            self.navigationController?.navigationBar.tintColor = .white
+                 
+        }
         
 //        let menuButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: #selector(didTappedMenuButtonItem))
 //        self.navigationItem.leftBarButtonItem = menuButtonItem
         
-        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: BoardsTableViewController())
-        // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
-        // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
-        // let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuShadowColor = UIColor.clear
+//        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: BoardsTableViewController())
+//        // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
+//        // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
+//        // let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
+//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+//        SideMenuManager.default.menuFadeStatusBar = false
+//        SideMenuManager.default.menuShadowColor = UIColor.clear
         
     }
    
@@ -105,9 +137,9 @@ extension MainViewController: KanbanViewDelegate {
     func kanbanView(_ kanbanView: KanbanView, didScrollToSectionWithIndex index: Int) {
         
         switch index {
-        case 0: navigationItem.title = "TO DO"
-        case 1: navigationItem.title = "PROGRESS"
-        case 2: navigationItem.title = "DONE"
+        case 0: navigationItem.title = SectionTitle.todo.rawValue
+        case 1: navigationItem.title = SectionTitle.progress.rawValue
+        case 2: navigationItem.title = SectionTitle.done.rawValue
         default: break
         }
         
@@ -123,12 +155,12 @@ extension MainViewController: KanbanViewDelegate {
     
         cell.textLabel.text = note.text
         
-        let transform = CGAffineTransform(rotationAngle: note.angle)
-        cell.containerView.transform = transform
-        cell.underView.transform = transform
-        
+//        let transform = CGAffineTransform(rotationAngle: note.angle)
+//        cell.containerView.transform = transform
+//        cell.underView.transform = transform
+//
         cell.containerView.backgroundColor = UIColor(hex: note.color)
-        cell.underView.backgroundColor = UIColor(hex: note.color)
+//        cell.underView.backgroundColor = UIColor(hex: note.color)
 
     }
     

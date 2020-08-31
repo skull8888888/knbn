@@ -10,7 +10,7 @@ import Foundation
 
 enum Standard {
     
-    static let schemaVersion: UInt64 = 2
+    static let schemaVersion: UInt64 = 3
     
     static let palette1: [String] = ["81D4FA", "80CBC4", "C5E1A5", "FFF59D", "FFAB91", "E57373"]
     static let palette2: [String] = ["9B6A6C", "B09398", "CEDFD9", "FFF59D", "F0FFCE", "CCC9A1"]

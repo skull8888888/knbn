@@ -10,17 +10,14 @@ import UIKit
 
 class NotesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var underView: UIView!
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var textLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        underView.dropShadow(cornerRadius: 8, shadowRadius: 8, y: 6, opacity: 0.3)
-    
         containerView.layer.cornerRadius = 8
-        underView.layer.cornerRadius = 8
         textLabel.adjustsFontSizeToFitWidth = true
     
     }
