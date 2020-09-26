@@ -60,10 +60,10 @@ class KanbanView: UIView {
         
         layout = KanbanCollectionViewLayout()
         layout.cellHeight = (UIScreen.main.bounds.width - 40) / 2
-        layout.cellWidth = UIScreen.main.bounds.width / 2 - 20
+        layout.cellWidth = UIScreen.main.bounds.width / 2 - 12
         layout.topPadding = 120.0
         layout.bottomPadding = 120.0
-        layout.leftPadding = 20
+        layout.leftPadding = 12
         layout.numberOfCellsInRow = 2
     
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -141,6 +141,10 @@ extension KanbanView: UICollectionViewDelegate {
         data[destinationIndexPath.section].insert(sourceItem, at: destinationIndexPath.item)
         
         delegate?.kanbanView(self, didChangeOrderOfItems: data)
+        
+        if(destinationIndexPath.section != sourceIndexPath.section) {
+            delegate?.kanbanView(self, didMovedNoteToDifferentSection: sourceItem, sectionIndex: destinationIndexPath.section)
+        }
         
     }
 
@@ -244,15 +248,16 @@ extension KanbanView: UICollectionViewDelegate {
 //        
 //    }
 
-    func scrollToSectionWithIndex(_ index: Int){
-
-        guard index != self.collectionView.numberOfSections else { return }
+    func scrollToSectionWithIndex(_ index: Int, animated: Bool = true){
+        guard index != self.collectionView.numberOfSections else {
+            return
+        }
         guard index >= 0 else { return }
         
         currentSection = index
         isTransferingCellToDifferentSection = true
-
-        UIView.animate(withDuration: 0.4, animations: {
+        
+        UIView.animate(withDuration: animated ? 0.4: 0, animations: {
             let point = CGPoint(x: CGFloat(index) * self.bounds.width, y: 0)
             self.scrollView.contentOffset = point
         })

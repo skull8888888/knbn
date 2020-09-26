@@ -12,27 +12,43 @@ import SideMenu
 class MainViewController: UIViewController {
     
     enum SectionTitle: String {
-        case todo = "ToDo"
+        case todo = "To Do"
         case progress = "Progress"
-        case done = "Done"
+        case done = "Done Today"
     }
     
     var kanbanView: KanbanView!
     
+    var isFirstRun = true;
+    
+    var taskCountLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .light {
+                self.view.backgroundColor = .white
+            } else {
+                self.view.backgroundColor = .black
+            }
+        } else {
+            self.view.backgroundColor = .white
+        }
         
         kanbanView = KanbanView(frame: .zero)
         self.view.addSubview(kanbanView)
+        
         
         kanbanView.snp.makeConstraints { (make) in
             make.leading.top.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         kanbanView.delegate = self
         kanbanView.reload(data: Model.shared.getData())
+        kanbanView.scrollToSectionWithIndex(1)
 
+        
         let addNoteButton = UIButton(frame: .zero)
         self.view.addSubview(addNoteButton)
         
@@ -49,8 +65,8 @@ class MainViewController: UIViewController {
             }
         }
         
-        addNoteButton.setTitle("NOTE", for: .normal)
-        addNoteButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight(rawValue: 400))
+        addNoteButton.setTitle("task", for: .normal)
+        addNoteButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         addNoteButton.setTitleColor(UIColor.subtitle, for: .normal)
         addNoteButton.backgroundColor = UIColor.background
         addNoteButton.addTarget(self, action: #selector(presentNewNoteVC), for: .touchUpInside)
@@ -62,38 +78,46 @@ class MainViewController: UIViewController {
        
         navigationItem.title = SectionTitle.todo.rawValue
         
-        let label = UILabel()
-        label.text = "8 notes"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        label.textColor = .lightGray
+        taskCountLabel = UILabel()
+        taskCountLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        taskCountLabel.numberOfLines = 1
+        taskCountLabel.text = "0 notes"
+        taskCountLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        taskCountLabel.textColor = .lightGray
         
-        let counterItem = UIBarButtonItem(customView: label)
+        let counterItem = UIBarButtonItem(customView: taskCountLabel)
                 
         navigationItem.leftBarButtonItem = counterItem
+        
+        
+//        navigation bar appearance
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         
-        if #available(iOS 13.0, *) {
-            
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            
-            appearance.backgroundColor = UIColor.white
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
         
-            navigationItem.standardAppearance = appearance
-            navigationItem.scrollEdgeAppearance = appearance
-            navigationItem.compactAppearance = appearance
-    
+        if traitCollection.userInterfaceStyle == .light {
+            
+            self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+             
+            appearance.backgroundColor = UIColor.white
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         } else {
-
-            self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.backgroundColor = .white
-            self.navigationController?.navigationBar.barTintColor = .white
-            self.navigationController?.navigationBar.tintColor = .white
-                 
+            
+            self.navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
+             
+            appearance.backgroundColor = UIColor.black
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         }
         
+        appearance.shadowColor = .clear
+        
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        navigationItem.compactAppearance = appearance
+
 //        let menuButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: #selector(didTappedMenuButtonItem))
 //        self.navigationItem.leftBarButtonItem = menuButtonItem
         
@@ -107,19 +131,42 @@ class MainViewController: UIViewController {
         
     }
    
-    override func viewWillAppear(_ animated: Bool) {
-        self.kanbanView.reload(data: Model.shared.getData())
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+    
+        if traitCollection.userInterfaceStyle == .light {
+            return .darkContent
+        } else {
+            return .lightContent
+        }
+    
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.kanbanView.reload(data: Model.shared.getData())
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if isFirstRun {
+            self.kanbanView.scrollToSectionWithIndex(1, animated: false)
+            isFirstRun = false
+        }
+    }
+
     @objc func didTappedMenuButtonItem(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     @objc func presentNewNoteVC(){
+        
         let newNoteVC = NewNoteViewController()
         let lastIndex = kanbanView.getLastIndexOfToDoSection()
         newNoteVC.mode = .create(lastIndex)
-        self.present(UINavigationController(rootViewController: newNoteVC), animated: true, completion: nil)
+        let navigationVC = UINavigationController(rootViewController: newNoteVC)
+        navigationVC.modalPresentationStyle = .fullScreen
+        self.present(navigationVC, animated: true, completion: nil)
+        
     }
     
 }
@@ -130,11 +177,26 @@ extension MainViewController: KanbanViewDelegate {
         
         let newNoteVC = NewNoteViewController()
         newNoteVC.mode = .edit(item as! Note)
-        self.present(UINavigationController(rootViewController: newNoteVC), animated: true, completion: nil)
+        let navigationVC = UINavigationController(rootViewController: newNoteVC)
+        navigationVC.modalPresentationStyle = .fullScreen
+        
+        self.present(navigationVC, animated: true, completion: nil)
         
     }
     
     func kanbanView(_ kanbanView: KanbanView, didScrollToSectionWithIndex index: Int) {
+        
+        let taskCount = kanbanView.data[index].count
+        
+        var taskCountText = ""
+        
+        switch(taskCount){
+        case 0: taskCountText = "No tasks"
+        case 1: taskCountText = "1 task"
+        default: taskCountText = "\(taskCount) tasks"
+        }
+        
+        taskCountLabel.text = taskCountText
         
         switch index {
         case 0: navigationItem.title = SectionTitle.todo.rawValue
@@ -149,19 +211,32 @@ extension MainViewController: KanbanViewDelegate {
         Model.shared.saveItemsOrder(data as! [[Note]])
     }
     
+    func kanbanView(_ kanbanView: KanbanView, didMovedNoteToDifferentSection note: KanbanItem, sectionIndex: Int) {
+        Model.shared.noteDidMovedToDifferentSection(note: note as! Note)
+    }
+    
     func kanbanView(_ kanbanView: KanbanView, configureCell cell: UICollectionViewCell, with item: KanbanItem, at indexPath: IndexPath) {
         
         guard let note = item as? Note, let cell = cell as? NotesCollectionViewCell else { return }
     
         cell.textLabel.text = note.text
         
-//        let transform = CGAffineTransform(rotationAngle: note.angle)
-//        cell.containerView.transform = transform
-//        cell.underView.transform = transform
-//
-        cell.containerView.backgroundColor = UIColor(hex: note.color)
-//        cell.underView.backgroundColor = UIColor(hex: note.color)
+        if indexPath.section == 1 && indexPath.item == 0 {
+            cell.textLabel.textAlignment = .center
+            cell.textLabel.textColor = .black
+        } else if indexPath.section == 2 {
+            cell.textLabel.textColor = UIColor.black.withAlphaComponent(0.4)
+            cell.textLabel.textAlignment = .left
+        } else {
+            cell.textLabel.textAlignment = .left
+            cell.textLabel.textColor = .black
+        }
+        
 
+        cell.containerView.backgroundColor = UIColor(hex: note.color)
+
+        
     }
     
 }
+ 

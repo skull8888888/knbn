@@ -41,13 +41,13 @@ class NewNoteViewController: UIViewController {
         
         self.view.backgroundColor = .red
         
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     
         counterLabel = UILabel(frame: CGRect(x:0,y:0,width:120, height:18))
         counterLabel.textAlignment = .center
         counterLabel.textColor = UIColor.tint
-        counterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 24, weight: .heavy)
+        counterLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .semibold)
         
         
         navigationController?.navigationBar.topItem?.titleView = counterLabel
@@ -62,21 +62,38 @@ class NewNoteViewController: UIViewController {
         colorPickerMasterView.delegate = self
         self.view.addSubview(colorPickerMasterView)
         
-        textView.snp.makeConstraints { (make) in
-            make.leading.top.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            make.bottom.equalTo(colorPickerMasterView.snp.top).offset(0)
+        let offset = 20
+        
+        let cardView = UIView()
+        self.view.addSubview(cardView)
+        cardView.snp.makeConstraints { (make) in
+            make.leading.top.equalTo(self.view.safeAreaLayoutGuide).offset(offset)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-offset)
+            make.bottom.equalTo(colorPickerMasterView.snp.top).offset(-offset)
         }
         
+        cardView.addSubview(textView)
+        cardView.layer.cornerRadius = 12
+        
+        textView.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalTo(cardView)
+        }
+//        
+        cardView.layer.borderWidth = 2
+        cardView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        
+        let textViewPadding: CGFloat = 16
+    
         textView.backgroundColor = .clear
-        textView.font = UIFont.systemFont(ofSize: 24, weight: .regular)
-        textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        textView.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        textView.textContainerInset = UIEdgeInsets(top: textViewPadding, left: textViewPadding, bottom: textViewPadding, right: textViewPadding)
         textView.delegate = self
         textView.textColor = .subtitle
         textView.becomeFirstResponder()
         
         colorPickerMasterView.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(self.view)
-            make.height.equalTo(64)
+            make.height.equalTo(80)
         }
         
         self.navigationItem.leftBarButtonItem = cancelButton
@@ -98,16 +115,39 @@ class NewNoteViewController: UIViewController {
             textView.text = note.text
             mainColorString = note.color
             
-            cancelButton.title = "Save"
-            doneButton.title = "Delete"
+            cancelButton.title = "Delete"
+            doneButton.title = "Save"
         }
      
         updateCounterLabelText()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+        self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+            
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        appearance.backgroundColor = UIColor.clear
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        let buttonAppearance = UIBarButtonItemAppearance(style: .plain)
+        buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.black ]
+        
+        appearance.buttonAppearance = buttonAppearance
+        appearance.shadowColor = .clear
+        
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        navigationItem.compactAppearance = appearance
+        
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+    
+        return .lightContent
+    
+    }
     
     @objc func doneButtonDidTapped(){
         
@@ -130,19 +170,21 @@ class NewNoteViewController: UIViewController {
             Model.shared.add(note)
             
         case .edit(let note):
-            Model.shared.delete(note)
+            Model.shared.save(id: note.id, text: self.textView.text, colorHEX: self.mainColorString)
+//            Model.shared.delete(note)
         }
-        
+//        self.navigationController?.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
        
     }
     
     @objc func cancelButtonDidTapped(){
+        
         switch mode {
         case .create:
             self.dismiss(animated: true, completion: nil)
         case .edit(let note):
-            Model.shared.save(id: note.id, text: self.textView.text, colorHEX: self.mainColorString)
+            Model.shared.delete(note)
             self.dismiss(animated: true, completion: nil)
         }
                                                         
@@ -175,7 +217,7 @@ class NewNoteViewController: UIViewController {
         default: break
         }
         
-        let finalText = "\(countString)|150"
+        let finalText = "\(countString) | 150"
         let mutableString = NSMutableAttributedString(string: finalText)
         
         mutableString.addAttribute(.foregroundColor, value: UIColor.clear, range: NSRange(hidingRange))

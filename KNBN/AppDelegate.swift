@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+    
+        
         window?.rootViewController = UINavigationController(rootViewController: MainViewController())
         
         Model.shared.migrate()
@@ -31,25 +34,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupDefault(){
         
-        UINavigationBar.appearance().tintColor = .tint
+//        UINavigationBar.appearance().tintColor = .tint
         
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .heavy),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .heavy),
             NSAttributedString.Key.foregroundColor: UIColor.tint,
         ]
         
         UIBarButtonItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .heavy),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold),
             NSAttributedString.Key.foregroundColor: UIColor.tint
-            ], for: .normal)
+        ], for: .normal)
         
         UIBarButtonItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .heavy),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold),
             NSAttributedString.Key.foregroundColor: UIColor.subtitle
             ], for: .disabled)
         
         UIBarButtonItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .heavy),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold),
             NSAttributedString.Key.foregroundColor: UIColor.subtitle
             ], for: .highlighted)
     }

@@ -9,5 +9,7 @@ target 'KNBN' do
   pod 'RealmSwift'
   pod 'SnapKit'
   pod 'SideMenu'
+  pod 'SwiftDate'
+#  pod 'SwiftDate', '~> 5.0'
 
 end

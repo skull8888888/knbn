@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 import MobileCoreServices
+import SwiftDate
 
 final class Note: Object, Codable, KanbanItem {
     
@@ -20,6 +21,8 @@ final class Note: Object, Codable, KanbanItem {
     
     @objc dynamic var createdDate: Date = Date(timeIntervalSince1970: 1)
     @objc dynamic var editedDate: Date = Date(timeIntervalSince1970: 1)
+    
+    @objc dynamic var changedSectionDate: Date = Date(timeIntervalSince1970: 1)
     
     override static func primaryKey() -> String? {
         return "id"
@@ -93,7 +96,7 @@ struct Model {
                 if (oldSchemaVersion < Standard.schemaVersion) {
                     
                     migration.enumerateObjects(ofType: Note.className(), { (old, new) in
-    
+
                         switch oldSchemaVersion {
                         case 0:
                             new?["id"] = UUID().uuidString
@@ -121,7 +124,8 @@ struct Model {
                             new?["createdDate"] = Date(timeIntervalSince1970: 1)
                             new?["editedDate"] = Date(timeIntervalSince1970: 1)
                             
-//                        case 2:
+                        case 3:
+                            new?["changedSectionDate"] = Date()
 //                            
                         default: break
                             
@@ -137,7 +141,17 @@ struct Model {
         Realm.Configuration.defaultConfiguration = config
         
     }
+    
+    mutating func noteDidMovedToDifferentSection(note: Note) {
+        
+        let note = realm.object(ofType: Note.self, forPrimaryKey: note.id)
 
+        try! realm.write {
+            
+            note?.changedSectionDate = Date()
+        }
+    }
+    
     mutating func saveItemsOrder(_ data: [[Note]]){
         
         for section in 0...2 {
@@ -162,7 +176,12 @@ struct Model {
         
         let toDo = Array(realm.objects(Note.self).filter("section = 0").sorted(byKeyPath: "index"))
         let progress = Array(realm.objects(Note.self).filter("section = 1").sorted(byKeyPath: "index"))
-        let done = Array(realm.objects(Note.self).filter("section = 2").sorted(byKeyPath: "index"))
+        
+        let calendar = Calendar.current
+        let startDate = calendar.startOfDay(for: Date())
+        let endDate = startDate + 1.days
+        
+        let done = Array(realm.objects(Note.self).filter("section = 2 && changedSectionDate BETWEEN %@", [startDate, endDate]).sorted(byKeyPath: "index"))
         
         return [
             toDo,
