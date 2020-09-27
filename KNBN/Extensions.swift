@@ -24,25 +24,38 @@ extension UIColor {
     }
     
 }
+//
+//extension Date {
+//    var startOfDay: Date {
+//        return Calendar.current.startOfDay(for: self)
+//    }
+//
+//    var endOfDay: Date {
+//        var components = DateComponents()
+//        components.day = 1
+//        components.second = -1
+//        return Calendar.current.date(byAdding: components, to: startOfDay)!
+//    }
+//}
 
 extension UIColor {
     convenience init(hex: String) {
-        let scanner = Scanner(string: hex)
-        scanner.scanLocation = 0
-        
-        var rgbValue: UInt64 = 0
-        
-        scanner.scanHexInt64(&rgbValue)
-        
-        let r = (rgbValue & 0xff0000) >> 16
-        let g = (rgbValue & 0xff00) >> 8
-        let b = rgbValue & 0xff
-        
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
         self.init(
-            red: CGFloat(r) / 0xff,
-            green: CGFloat(g) / 0xff,
-            blue: CGFloat(b) / 0xff, alpha: 1
-        )
+           red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+           green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+           blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+           alpha: CGFloat(1.0)
+       )
     }
     
 }

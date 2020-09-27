@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenu
 
 class MainViewController: UIViewController {
     
@@ -21,25 +20,19 @@ class MainViewController: UIViewController {
     
     var isFirstRun = true;
     
-    var taskCountLabel: UILabel!
+    var countLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if #available(iOS 12.0, *) {
-            if traitCollection.userInterfaceStyle == .light {
-                self.view.backgroundColor = .white
-            } else {
-                self.view.backgroundColor = .black
-            }
-        } else {
+        if traitCollection.userInterfaceStyle == .light {
             self.view.backgroundColor = .white
+        } else {
+            self.view.backgroundColor = .black
         }
         
         kanbanView = KanbanView(frame: .zero)
         self.view.addSubview(kanbanView)
-        
         
         kanbanView.snp.makeConstraints { (make) in
             make.leading.top.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
@@ -78,20 +71,18 @@ class MainViewController: UIViewController {
        
         navigationItem.title = SectionTitle.todo.rawValue
         
-        taskCountLabel = UILabel()
-        taskCountLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        taskCountLabel.numberOfLines = 1
-        taskCountLabel.text = "0 notes"
-        taskCountLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        taskCountLabel.textColor = .lightGray
+        countLabel = UILabel()
+        countLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        countLabel.numberOfLines = 1
+        countLabel.text = "0 notes"
+        countLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        countLabel.textColor = .lightGray
         
-        let counterItem = UIBarButtonItem(customView: taskCountLabel)
+        let counterItem = UIBarButtonItem(customView: countLabel)
                 
         navigationItem.leftBarButtonItem = counterItem
         
-        
 //        navigation bar appearance
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         
@@ -117,17 +108,6 @@ class MainViewController: UIViewController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
-
-//        let menuButtonItem = UIBarButtonItem(image: UIImage(), style: .plain, target: self, action: #selector(didTappedMenuButtonItem))
-//        self.navigationItem.leftBarButtonItem = menuButtonItem
-        
-//        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: BoardsTableViewController())
-//        // UISideMenuNavigationController is a subclass of UINavigationController, so do any additional configuration
-//        // of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
-//        // let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as! UISideMenuNavigationController
-//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-//        SideMenuManager.default.menuFadeStatusBar = false
-//        SideMenuManager.default.menuShadowColor = UIColor.clear
         
     }
    
@@ -145,6 +125,10 @@ class MainViewController: UIViewController {
         
         self.kanbanView.reload(data: Model.shared.getData())
         
+        if kanbanView.currentSection == 0 {
+            updateCountLabelText(count: kanbanView.data[0].count)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -154,10 +138,6 @@ class MainViewController: UIViewController {
         }
     }
 
-    @objc func didTappedMenuButtonItem(){
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-    
     @objc func presentNewNoteVC(){
         
         let newNoteVC = NewNoteViewController()
@@ -167,6 +147,23 @@ class MainViewController: UIViewController {
         navigationVC.modalPresentationStyle = .fullScreen
         self.present(navigationVC, animated: true, completion: nil)
         
+    }
+    
+}
+
+extension MainViewController {
+    
+    func updateCountLabelText(count: Int){
+        
+        var countText = ""
+        
+        switch(count){
+        case 0: countText = "No tasks"
+        case 1: countText = "1 task"
+        default: countText = "\(count) tasks"
+        }
+        
+        countLabel.text = countText
     }
     
 }
@@ -186,17 +183,9 @@ extension MainViewController: KanbanViewDelegate {
     
     func kanbanView(_ kanbanView: KanbanView, didScrollToSectionWithIndex index: Int) {
         
-        let taskCount = kanbanView.data[index].count
+        let count = kanbanView.data[index].count
         
-        var taskCountText = ""
-        
-        switch(taskCount){
-        case 0: taskCountText = "No tasks"
-        case 1: taskCountText = "1 task"
-        default: taskCountText = "\(taskCount) tasks"
-        }
-        
-        taskCountLabel.text = taskCountText
+        updateCountLabelText(count: count)
         
         switch index {
         case 0: navigationItem.title = SectionTitle.todo.rawValue
@@ -213,6 +202,10 @@ extension MainViewController: KanbanViewDelegate {
     
     func kanbanView(_ kanbanView: KanbanView, didMovedNoteToDifferentSection note: KanbanItem, sectionIndex: Int) {
         Model.shared.noteDidMovedToDifferentSection(note: note as! Note)
+        
+        let count = kanbanView.data[sectionIndex].count
+        updateCountLabelText(count: count)
+        
     }
     
     func kanbanView(_ kanbanView: KanbanView, configureCell cell: UICollectionViewCell, with item: KanbanItem, at indexPath: IndexPath) {
